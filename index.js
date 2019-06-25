@@ -1,6 +1,5 @@
 // TODO: Implement caching
 // TODO: Further error checking
-
 const app = require('express')();
 const path = require('path');
 const csv = require('csv-parser');
@@ -14,8 +13,9 @@ app.get('/', (req, res) => {
 
 app.get('/median_pickup_time', (req, res) => {
   let pickups = [];
-  let startTime = new Date(req.query.start_time);
-  let endTime = new Date(req.query.end_time);
+  // Create date objects (and handling timezones) to compare to
+  let startTime = new Date(`${req.query.start_time}Z`);
+  let endTime = new Date(`${req.query.end_time}Z`);
   // Parse the CSV file and push all values with matching location to array
   fs.createReadStream('./CSV/pickup_times.csv')
     .pipe(csv())
