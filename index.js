@@ -1,3 +1,6 @@
+// TODO: Implement caching
+// TODO: Further error checking
+
 const app = require('express')();
 const path = require('path');
 const csv = require('csv-parser');
@@ -6,7 +9,7 @@ const calculateMedian = require('./src/calculateMedian');
 const port = process.env.PORT || 8000;
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 app.get('/median_pickup_time', (req, res) => {

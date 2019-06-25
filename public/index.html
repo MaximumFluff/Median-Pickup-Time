@@ -8,6 +8,16 @@
 </head>
 <body>
   <h1>Wolt Backend Assignment</h1>
-  <p>Hello world!</p>
+  <p>The API requires three arguments: a <code>location_id</code>, a <code>start_time</code> argument and a <code>end_time</code> argument</p>
+  <p>The <code>location_id</code> is a number value and the other two values are Datetime strings (e.g <code>2019-01-09T12:00:00</code>)</p>
+  <h2>Example</h2>
+  <code>http://localhost:8000/median_pickup_time?location_id=12&start_time=2019-01-09T20:00:00&end_time=2019-01-09T21:00:00</code>
+  <p>If values are found within that range, you will recieve a JSON object with the median like so:</p>
+  <code>
+    {
+      median: 29.5
+    }
+  </code>
+  <p>Otherwise, you will recieve a JSON object containing an error message</p>
 </body>
 </html>
