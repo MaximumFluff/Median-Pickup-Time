@@ -1,4 +1,3 @@
-// TODO: Further error checking
 const app = require('express')();
 const path = require('path');
 const cache = require('memory-cache');
@@ -17,7 +16,7 @@ app.get('/median_pickup_time', (req, res) => {
   else {
     if (!req.query.start_time || !req.query.end_time || !req.query.location_id) {
       res.json({ ERROR: 'One or more required parameters missing from request' });
-    } 
+    }
     else {
       parseCv(req, res);
     }
