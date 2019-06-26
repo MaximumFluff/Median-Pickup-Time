@@ -9,13 +9,14 @@
 <body>
   <h1>Wolt Backend Assignment</h1>
   <p>The API requires three arguments: a <code>location_id</code>, a <code>start_time</code> argument and a <code>end_time</code> argument</p>
-  <p>The <code>location_id</code> is a number value and the other two values are Datetime strings (e.g <code>2019-01-09T12:00:00</code>)</p>
+  <p>The <code>location_id</code> requires a number between 01-99 and the other two values are Datetime strings (example: <code>2019-01-09T12:00:00</code>)</p>
+  <p>The timezones can either have Z (UTC time parameter) at the end of the string or not. if it's missing it will be added to the string to ensure correct median values are returned from the CSV file</p>
   <h2>Example</h2>
-  <code>http://localhost:8000/median_pickup_time?location_id=12&start_time=2019-01-09T20:00:00&end_time=2019-01-09T21:00:00</code>
+  <code>http://localhost:8000//median_pickup_time?location_id=12&start_time=2019-01-09T11:00:00&end_time= 2019-01-09T12:00:00</code>
   <p>If values are found within that range, you will recieve a JSON object with the median like so:</p>
   <code>
     {
-      median: 29.5
+      median: 27
     }
   </code>
   <p>Otherwise, you will recieve a JSON object containing an error message</p>

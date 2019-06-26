@@ -7,8 +7,8 @@ const checkDateFormat = require('./checkDateFormat');
 function parseCv(req, res) {
   const pickups = [];
   const timeValues = checkDateFormat(req.query.start_time, req.query.end_time);
-  if (!timeValues) {
-    res.json({ ERROR: 'Timestamps passed are incorrectly formatted' });
+  if (!timeValues || !/[0-9]{2}/.test(req.query.location_id)) {
+    res.json({ ERROR: 'One or more timestamps passed are incorrectly formatted' });
   } else {
     const startTime = new Date(timeValues[0]);
     const endTime = new Date(timeValues[1]);
