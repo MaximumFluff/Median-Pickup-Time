@@ -15,7 +15,7 @@ app.get('/median_pickup_time', (req, res) => {
   }
   else {
     if (!req.query.start_time || !req.query.end_time || !req.query.location_id) {
-      res.json({ ERROR: 'One or more required parameters missing from request' });
+      res.json({ ERROR: 'One or more required parameters missing from your request' });
     }
     else {
       parseCv(req, res);

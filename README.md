@@ -21,6 +21,12 @@ When a request is sent to the API, it first checks to see if a cached value usin
 
 If not, it proceeds to check the URL and that all required parameters have been passed. If not, it will send an error message.
 
+The formats required for the parameters are based on the values in the CSV file:
+- ` location_id ` can be an int from 0-99
+- ` start_time ` is a timestamp like so: 2019-01-09T11:00:00
+- ` end_time ` is also a timestamp like so: 2019-01-09T12:00:00
+- (The date strings can either contain the UTC time parameter (Z, e.g 2019-01-09T12:00:00Z) at the end or not. if missing, it will be added by the API)
+
 When all parameters are passed it will parse the values to ensure they are in the correct format and proceed to parse the CSV file and retrieve the required values based on the parameters.
 
 It will then calculate the median, save the result to the cache and return that value. If nothing is found based on those paramters it will cache an error message and send that response. All cached values are saved for 1 minute.
